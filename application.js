@@ -47,6 +47,13 @@ var checkAnswer = function(){
 	}
 }
 
+var playGame = function(){
+	getInput();
+	if(valid === true){
+		checkAnswer();
+	}
+}
+
 //Sets randNumber to random number between 0 and 100
 //Resets counter
 $('.new').on('click', function(){
@@ -60,11 +67,14 @@ $('.new').on('click', function(){
 	}
 });
 
+$(".submit").click(
+	playGame
+);
 
-$(".submit").on('click', function(){
-	getInput();
-	if(valid === true){
-		checkAnswer();
+$("#input").keydown(function(e) {
+    if (e.which == 13){ 
+    	e.preventDefault();
+    	playGame();
 	}
 });
 
