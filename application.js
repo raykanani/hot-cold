@@ -14,6 +14,7 @@ var getInput = function(){
 	}
 	else{
 	counter += 1;
+	//Check if there is a top score and display correct message
 	if(counterBucket[0] === undefined){
 		$('.request').html("Set your best score. You have taken " + counter + " tries");
 	}else{
@@ -28,11 +29,12 @@ var getInput = function(){
 var checkAnswer = function(){
 	if (answer === randNumber){
 		$('.hint').html("Well done. It took you " + counter + " tries");
+		//Should refactor this based on not having to store every score
 		counterBucket.push(counter);
 		counterBucket.sort(function(a,b){return a-b});
 		randNumber = Math.floor(Math.random()*101);
 		counter = 0;
-		$('.request').html("I'm thinking of a new number. Guess again to beat your top score.");
+		$('.request').html("I'm thinking of a new number. Guess again to beat your top score of " + counterBucket[0] + " tries.");
 	} 
 	else if(answer < (randNumber + 10) && answer > (randNumber - 10)){
 		$('.hint').html("Getting Really Warm");
@@ -51,7 +53,11 @@ $('.new').on('click', function(){
 	randNumber = Math.floor(Math.random()*101);
 	counter = 0;
 	$('.request').html("I'm thinking of a new number. Take a guess");
-	$('.hint').html("See if you can beat your top score");
+	if(counterBucket[0] === undefined){
+		$('.hint').html("Set a top score");
+	}else{
+		$('.hint').html("See if you can beat your top score of " + counterBucket[0] + " tries.");
+	}
 });
 
 
