@@ -148,3 +148,14 @@ input[type=button]:active{
   -moz-box-shadow: inset 2px 2px 1px #DE0802;
   box-shadow: inset 2px 2px 1px #DE0802;
 }
+
+@media only screen 
+and (min-width : 200px) 
+and (max-width : 499px)   {
+
+header{
+  margin-top: 25px;
+}
+
+
+}
