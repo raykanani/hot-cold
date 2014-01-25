@@ -12,6 +12,8 @@ var getInput = function(){
 	$('.request').html("It must be your first time. Make sure you pick a number between 0 and 100");
 	//Reset input
 	$('#input').val("");
+	//Set placeholder text to '??'
+	$('#input').attr('placeholder', '??');
 	valid = false;
 	}
 	else{
@@ -40,6 +42,10 @@ var checkAnswer = function(){
 		counterBucket.sort(function(a,b){return a-b});
 		randNumber = Math.floor(Math.random()*101);
 		counter = 0;
+		//Reset input
+		$('#input').val("");
+		//Set placeholder text to '??'
+		$('#input').attr('placeholder', '??');
 		$('.request').html("I'm thinking of a new number. Guess again to beat your top score of " + counterBucket[0] + " tries.");
 	} 
 	else if(answer < (randNumber + 10) && answer > (randNumber - 10)){
@@ -66,6 +72,10 @@ $('.new').on('click', function(){
 	randNumber = Math.floor(Math.random()*101);
 	counter = 0;
 	$('.request').html("I'm thinking of a new number. Take a guess");
+	//Reset input
+	$('#input').val("");
+	//Set placeholder text to '??'
+	$('#input').attr('placeholder', '??');
 	if(counterBucket[0] === undefined){
 		$('.hint').html("Set a top score");
 	}else{
