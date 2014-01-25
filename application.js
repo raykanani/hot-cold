@@ -14,6 +14,8 @@ var getInput = function(){
 	}
 	else{
 	counter += 1;
+	//Reset input
+	$('#input').val("");
 	//Check if there is a top score and display correct message
 	if(counterBucket[0] === undefined){
 		$('.request').html("Set your best score. You have taken " + counter + " tries");
