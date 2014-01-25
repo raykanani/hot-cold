@@ -10,12 +10,16 @@ var getInput = function(){
 	//Validate answer
 	if (answer < 0 || answer > 100 || !answer || isNaN(answer)){
 	$('.request').html("It must be your first time. Make sure you pick a number between 0 and 100");
+	//Reset input
+	$('#input').val("");
 	valid = false;
 	}
 	else{
 	counter += 1;
 	//Reset input
 	$('#input').val("");
+	//Set placeholder text to last entry
+	$('#input').attr('placeholder', answer);
 	//Check if there is a top score and display correct message
 	if(counterBucket[0] === undefined){
 		$('.request').html("Set your best score. You have taken " + counter + " tries");
