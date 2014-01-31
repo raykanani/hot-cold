@@ -3,6 +3,7 @@ $(function(){
 	var counterBucket = []; 
 	var randNumber = Math.floor(Math.random()*101);
 	var answer;
+	var valid;
  
   //Do I have to include this before functions that reference this function?
   var reset = function(placeholder){
@@ -16,7 +17,7 @@ $(function(){
     randNumber = Math.floor(Math.random()*101);
   	counter = 0;
   	$('.request').html("I'm thinking of a new number. Take a guess");
-    reset('??')
+    reset('??');
   }
 
   //assign value in input to answer
